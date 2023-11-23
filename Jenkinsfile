@@ -55,7 +55,7 @@ pipeline {
                     bat 'docker build -t cagnotte:${BUILD_ID} .'
 
                     // Renommer l'image Docker
-                    bat "docker tag cagnotte:${BUILD_ID} nahladhouibi/cagnotte:${BUILD_ID}"
+                    bat "docker tag cagnotte:${BUILD_ID} nahladhouibi/cagnotte_${BUILD_ID}"
                 }
             }
         }
@@ -66,7 +66,7 @@ pipeline {
 
                     // Exécuter le conteneur Docker
                     // bat "docker rm -f cagnotte-v1 nahladhouibi/cagnotte:${BUILD_ID}"
-                    bat "docker run  -d --name cagnotte1 nahladhouibi/cagnotte:${BUILD_ID}"
+                    bat "docker run  -d --name cagnotte1 nahladhouibi/cagnotte_${BUILD_ID}"
                 }
             }
         }
