@@ -14,7 +14,7 @@ pipeline {
                 }
             }
         }
-    }
+    
        stage('Install Node.js') {
            
             steps {
@@ -41,12 +41,12 @@ pipeline {
                 bat 'npm run build '
             }
         }
-             stage('Archive Artifacts') {
-            steps {
-                // Archiver les fichiers construits pour les publier comme artefacts
-                archiveArtifacts 'dist/**/*'
-            }
-        }
+        //      stage('Archive Artifacts') {
+        //     steps {
+        //         // Archiver les fichiers construits pour les publier comme artefacts
+        //         archiveArtifacts 'dist/**/*'
+        //     }
+        // }
          stage('Build and Rename Docker Image') {
             steps {
                 // Utiliser un conteneur Docker pour construire et renommer l'image
