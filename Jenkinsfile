@@ -48,17 +48,18 @@ pipeline {
         //     }
         // }
          stage('Build and Rename Docker Image') {
-            steps {
-                // Utiliser un conteneur Docker pour construire et renommer l'image
-                script {
-                    // Construire l'image Docker (ajustez la commande selon vos besoins)
-                    bat 'docker build -t cagnotte_${BUILD_ID} .'
+    steps {
+        // Utiliser un conteneur Docker pour construire et renommer l'image
+        script {
+            // Construire l'image Docker (ajustez la commande selon vos besoins)
+            bat 'docker build -t cagnotte_%BUILD_ID% .'
 
-                    // Renommer l'image Docker
-                    bat "docker tag cagnotte_${BUILD_ID} nahladhouibi/cagnotte_${BUILD_ID}"
-                }
-            }
+            // Renommer l'image Docker
+            bat "docker tag cagnotte_%BUILD_ID% nahladhouibi/cagnotte_%BUILD_ID%"
         }
+    }
+}
+
           stage('Build and Run Docker Container') {
             steps {
                 // Utiliser un conteneur Docker pour construire et exécuter le conteneur
