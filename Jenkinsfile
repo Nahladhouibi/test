@@ -15,32 +15,32 @@ pipeline {
             }
         }
     
-       stage('Install Node.js') {
+       // stage('Install Node.js') {
            
-            steps {
-                script {
-                    // Utiliser le plugin NodeJS pour installer Node.js
-                    def nodejsInstallation = tool 'ode'
-                    env.PATH = "${nodejsInstallation}/bin:${env.PATH}"
+       //      steps {
+       //          script {
+       //              // Utiliser le plugin NodeJS pour installer Node.js
+       //              def nodejsInstallation = tool 'node'
+       //              env.PATH = "${nodejsInstallation}/bin:${env.PATH}"
                     
-                    // Vérifier si la version de Node.js est correcte
-                    bat "node -v"
-                }
-            }
-        }
-          stage('Install Dependencies') {
-            steps {
-                // Installer les dépendances Node.js
-                bat 'npm install'
-            }
-        }
+       //              // Vérifier si la version de Node.js est correcte
+       //              bat "node -v"
+       //          }
+       //      }
+       //  }
+        //   stage('Install Dependencies') {
+        //     steps {
+        //         // Installer les dépendances Node.js
+        //         bat 'npm install'
+        //     }
+        // }
 
-        stage('Build') {
-            steps {
-                // Construire l'application Angular 
-                bat 'npm run build '
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         // Construire l'application Angular 
+        //         bat 'npm run build '
+        //     }
+        // }
         //      stage('Archive Artifacts') {
         //     steps {
         //         // Archiver les fichiers construits pour les publier comme artefacts
