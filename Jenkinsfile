@@ -52,7 +52,7 @@ pipeline {
                 // Utiliser un conteneur Docker pour construire et renommer l'image
                 script {
                     // Construire l'image Docker (ajustez la commande selon vos besoins)
-                    bat 'docker build -t cagnotte_${BUILD_ID} .'
+                    bat 'docker build -t "cagnotte_${BUILD_ID}" .'
 
                     // Renommer l'image Docker
                     bat "docker tag cagnotte_${BUILD_ID} nahladhouibi/cagnotte_${BUILD_ID}"
