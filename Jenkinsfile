@@ -3,7 +3,7 @@ pipeline {
     environment {
         DOCKER_PATH = "C:\\Program Files\\Docker\\cli-plugins"
         PATH = "${DOCKER_PATH}:${PATH}"
-        DOCKERHUB_CREDENTIALS = credentials('DockerHub')
+        // DOCKERHUB_CREDENTIALS = credentials('DockerHub')
         NODEJS_PATH = "C:\\Program Files (x86)\\nodejs"
     }
     stages {
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Utiliser le plugin NodeJS pour installer Node.js
-                    def nodejsInstallation = tool 'NodeJS'
+                    def nodejsInstallation = tool 'ode'
                     env.PATH = "${nodejsInstallation}/bin:${env.PATH}"
                     
                     // Vérifier si la version de Node.js est correcte
@@ -65,7 +65,8 @@ pipeline {
                 script {
 
                     // Exécuter le conteneur Docker
-                    bat "docker run --rm -d --name cagnotte1 nahladhouibi/$cagnotte:$VERSION1"
+                    // bat "docker rm -f cagnotte-v1 nahladhouibi/$cagnotte:$VERSION1"
+                    bat "docker run  -d --name cagnotte1 nahladhouibi/$cagnotte:$VERSION1"
                 }
             }
         }
