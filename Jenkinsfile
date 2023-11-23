@@ -52,10 +52,10 @@ pipeline {
                 // Utiliser un conteneur Docker pour construire et renommer l'image
                 script {
                     // Construire l'image Docker (ajustez la commande selon vos besoins)
-                    bat 'docker build -t $cagnotte:$VERSION1 .'
+                    bat 'docker build -t cagnotte:${BUILD_ID} .'
 
                     // Renommer l'image Docker
-                    bat "docker tag  $cagnotte:$VERSION1 nahladhouibi/$cagnotte:$VERSION1"
+                    bat "docker tag cagnotte:${BUILD_ID} nahladhouibi/cagnotte:${BUILD_ID}"
                 }
             }
         }
@@ -65,8 +65,8 @@ pipeline {
                 script {
 
                     // Exécuter le conteneur Docker
-                    // bat "docker rm -f cagnotte-v1 nahladhouibi/$cagnotte:$VERSION1"
-                    bat "docker run  -d --name cagnotte1 nahladhouibi/$cagnotte:$VERSION1"
+                    // bat "docker rm -f cagnotte-v1 nahladhouibi/cagnotte:${BUILD_ID}"
+                    bat "docker run  -d --name cagnotte1 nahladhouibi/cagnotte:${BUILD_ID}"
                 }
             }
         }
